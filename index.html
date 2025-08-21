@@ -5,76 +5,67 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rytas Vilnius — NFC</title>
 
-  <!-- visada šviežias užkrovimas -->
+  <!-- Visada šviežias užkrovimas -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate, max-age=0">
   <meta http-equiv="Pragma" content="no-cache">
   <meta name="robots" content="noindex">
 
   <style>
-    :root {
-      --bg: #000;
-      --fg: #fff;
-      --muted: #9ca3af;
-      --accent: #ef4444; /* raudona */
-      --card: #0b0b0b;
-      --border: #1f2937;
+    :root{
+      --bg:#000;--fg:#fff;--muted:#9ca3af;--accent:#ef4444;--card:#0b0b0b;--border:#1f2937
     }
-    * { box-sizing: border-box; }
-    html, body { height: 100%; }
-    body {
-      margin: 0; background: var(--bg); color: var(--fg);
-      font-family: system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,"Noto Sans",Arial,"Apple Color Emoji","Segoe UI Emoji";
-      -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;background:var(--bg);color:var(--fg);
+      font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial;
+      -webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale
     }
-    .container { max-width: 980px; margin: 0 auto; padding: 24px; }
-    header { display:flex; align-items:center; justify-content:center; padding: 24px 0 8px; }
-    header img { height: 84px; width: auto; filter: drop-shadow(0 0 24px rgba(239,68,68,.25)); }
-    .btns { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; margin: 16px 0 24px; }
-    .btn {
-      appearance:none; border:1px solid var(--border); background: linear-gradient(180deg,#141414,#0a0a0a);
-      color: var(--fg); padding: 12px 18px; border-radius: 999px; font-weight: 600; text-decoration:none;
-      transition: transform .05s ease, border-color .2s ease, box-shadow .2s ease;
+    .container{max-width:980px;margin:0 auto;padding:24px}
+    header{display:flex;align-items:center;justify-content:center;padding:24px 0 8px}
+    header img{height:84px;width:auto;filter:drop-shadow(0 0 24px rgba(239,68,68,.25))}
+    .btns{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin:16px 0 24px}
+    .btn{
+      appearance:none;border:1px solid var(--border);background:linear-gradient(180deg,#141414,#0a0a0a);
+      color:var(--fg);padding:12px 18px;border-radius:999px;font-weight:700;text-decoration:none;
+      transition:transform .05s ease,border-color .2s ease,box-shadow .2s ease
     }
-    .btn:hover { border-color: #374151; transform: translateY(-1px); box-shadow: 0 6px 18px rgba(239,68,68,.15); }
-    .btn.accent { border-color: var(--accent); box-shadow: 0 6px 18px rgba(239,68,68,.25); }
-    .card {
-      background: linear-gradient(180deg, #0e0e0e, #090909);
-      border: 1px solid var(--border); border-radius: 16px; padding: 18px 18px;
+    .btn:hover{border-color:#374151;transform:translateY(-1px);box-shadow:0 6px 18px rgba(239,68,68,.15)}
+    .btn.accent{border-color:var(--accent);box-shadow:0 6px 18px rgba(239,68,68,.25)}
+    .card{background:linear-gradient(180deg,#0e0e0e,#090909);border:1px solid var(--border);border-radius:16px;padding:18px}
+    h1,h2,h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .countdown{display:flex;gap:12px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:8px}
+    .tick{min-width:92px;text-align:center;padding:10px 8px;border-radius:12px;background:#0a0a0a;border:1px solid var(--border)}
+    .tick .num{font-size:28px;font-weight:800;letter-spacing:.5px;line-height:1}
+    .tick .lab{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.12em}
+    .next-meta{text-align:center;margin-top:10px;color:var(--muted);font-size:14px}
+    /* Tvarkaraštis stulpeliu žemyn */
+    .schedule{margin-top:18px;display:flex;flex-direction:column;gap:10px}
+    .game{
+      display:flex;flex-direction:column;gap:6px;background:#0a0a0a;border:1px solid var(--border);
+      padding:12px;border-radius:12px
     }
-    h1,h2,h3 { margin: 0 0 8px; }
-    .muted { color: var(--muted); }
-    .countdown {
-      display:flex; gap:12px; flex-wrap:wrap; align-items:center; justify-content:center; margin-top: 8px;
-    }
-    .tick {
-      min-width: 76px; text-align:center; padding: 10px 8px; border-radius: 12px;
-      background:#0a0a0a; border:1px solid var(--border);
-    }
-    .tick .num { font-size: 26px; font-weight: 800; letter-spacing: .5px; }
-    .tick .lab { font-size: 11px; color: var(--muted); text-transform: uppercase; letter-spacing: .12em; }
-    .next-meta { text-align:center; margin-top: 10px; color: var(--muted); font-size: 14px; }
-    .schedule {
-      margin-top: 22px; padding: 12px; border:1px solid var(--border); border-radius:16px; background: var(--card);
-      overflow:auto; white-space: nowrap; scrollbar-width: thin;
-    }
-    .game {
-      display:inline-flex; flex-direction:column; gap:6px; background:#0a0a0a; border:1px solid var(--border);
-      padding: 10px 12px; border-radius: 12px; margin-right: 10px; min-width: 240px;
-    }
-    .badge { padding:2px 8px; font-size: 11px; border:1px solid var(--border); border-radius:999px; color: var(--muted); }
-    .home { color: #10b981; border-color: #134e4a; }
-    .away { color: #60a5fa; border-color: #1e3a8a; }
-    footer { text-align:center; color: var(--muted); font-size: 12px; margin: 28px 0 8px; }
-    .center { display:flex; justify-content:center; }
-    .hidden { display:none; }
+    .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+    .badge{padding:2px 8px;font-size:11px;border:1px solid var(--border);border-radius:999px;color:var(--muted)}
+    .home{color:#10b981;border-color:#134e4a}
+    .away{color:#60a5fa;border-color:#1e3a8a}
+    .opponent{font-weight:800;font-size:18px}
+    .meta{color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .time{font-variant-numeric:tabular-nums;font-weight:700}
+    .game .btn{align-self:flex-start;margin-top:6px}
+    footer{text-align:center;color:var(--muted);font-size:12px;margin:28px 0 8px}
+    .center{display:flex;justify-content:center}
+    .hidden{display:none}
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <!-- pakeisk failą į savo (pvz. logo.svg) arba palik žemiau esantį teksto logotipą -->
+      <!-- Įkelk logo.svg/png į repo. Jei nėra – rodys tekstą. -->
       <a href="https://www.rytasvilnius.lt/" aria-label="Rytas Vilnius">
-        <img src="logo.svg" alt="Rytas Vilnius" onerror="this.replaceWith(Object.assign(document.createElement('h1'),{textContent:'RYTAS VILNIUS'}))">
+        <img src="logo.svg" alt="Rytas Vilnius"
+          onerror="this.replaceWith(Object.assign(document.createElement('h1'),{textContent:'RYTAS VILNIUS'}))">
       </a>
     </header>
 
@@ -89,16 +80,15 @@
       <div id="next-title" class="muted">Kraunama…</div>
       <div class="countdown" id="countdown" aria-live="polite">
         <div class="tick"><div class="num" id="d">0</div><div class="lab">Dienos</div></div>
-        <div class="tick"><div class="num" id="h">0</div><div class="lab">Val.</div></div>
-        <div class="tick"><div class="num" id="m">0</div><div class="lab">Min.</div></div>
-        <div class="tick"><div class="num" id="s">0</div><div class="lab">Sek.</div></div>
+        <div class="tick"><div class="num" id="h">00</div><div class="lab">Val.</div></div>
+        <div class="tick"><div class="num" id="m">00</div><div class="lab">Min.</div></div>
       </div>
       <div class="next-meta" id="next-meta"></div>
     </section>
 
     <section style="margin-top:16px;">
       <h3>Šio sezono tvarkaraštis</h3>
-      <div class="schedule" id="schedule">Kraunama…</div>
+      <div id="schedule" class="schedule">Kraunama…</div>
       <div class="center"><small class="muted" id="season-label"></small></div>
     </section>
 
@@ -108,51 +98,49 @@
   </div>
 
   <script>
-    // Užkrovus iš BFCache – persikraunam, kad info tikrai šviežia
+    // Grįžus per BFCache – persikrauname
     window.addEventListener('pageshow', function (e) {
       if (e.persisted) location.reload();
       const nav = performance.getEntriesByType && performance.getEntriesByType('navigation')[0];
       if (nav && nav.type === 'back_forward') location.reload();
     });
 
-    (function addUTM() {
+    // UTM + cache-bust ant nuorodų
+    (function addUTM(){
       const bust = Date.now();
-      document.querySelectorAll('a[data-nfc-utm]').forEach(a => {
-        try {
+      document.querySelectorAll('a[data-nfc-utm]').forEach(a=>{
+        try{
           const u = new URL(a.href, location.href);
-          if (!u.searchParams.has('utm_source')) u.searchParams.set('utm_source', 'nfc');
-          if (!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium', 'tag');
-          if (!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign', 'landing');
+          if(!u.searchParams.has('utm_source')) u.searchParams.set('utm_source','nfc');
+          if(!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium','tag');
+          if(!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign','landing');
           u.searchParams.set('ts', bust);
           a.href = u.toString();
-        } catch {}
+        }catch{}
       });
     })();
 
     const LT_TZ = 'Europe/Vilnius';
-    const fmtDate = (d) => new Intl.DateTimeFormat('lt-LT', {
-      timeZone: LT_TZ, year: 'numeric', month: 'short', day: '2-digit',
-      hour: '2-digit', minute: '2-digit'
+    const fmtDate = (d) => new Intl.DateTimeFormat('lt-LT',{
+      timeZone:LT_TZ,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit'
     }).format(d);
 
-    async function loadSchedule() {
+    async function loadSchedule(){
       const ts = Date.now();
-      const res = await fetch('schedule.json?ts=' + ts, { cache: 'no-store' });
+      const res = await fetch('schedule.json?ts='+ts,{cache:'no-store'});
       const json = await res.json();
 
-      // Filtruojam į dabartinius kalendorinius metus
       const now = new Date();
       const year = now.getFullYear();
-      const games = (json.games || []).filter(g => {
-        const t = new Date(g.datetime);
-        return t.getFullYear() === year;
-      }).sort((a,b) => new Date(a.datetime) - new Date(b.datetime));
+      const games = (json.games||[])
+        .filter(g=>new Date(g.datetime).getFullYear()===year)
+        .sort((a,b)=>new Date(a.datetime)-new Date(b.datetime));
 
-      document.getElementById('season-label').textContent = year + ' m.';
+      document.getElementById('season-label').textContent = year+' m.';
 
       // Artimiausios varžybos
-      const upcoming = games.find(g => new Date(g.datetime) > now);
-      if (upcoming) {
+      const upcoming = games.find(g=>new Date(g.datetime)>now);
+      if (upcoming){
         const t = new Date(upcoming.datetime);
         const homeAway = upcoming.home ? 'Namie' : 'Išvykoje';
         const comp = upcoming.competition ? ` · ${upcoming.competition}` : '';
@@ -161,117 +149,99 @@
         document.getElementById('next-meta').textContent = fmtDate(t);
 
         startCountdown(t);
-        // jei turime specialią bilietų nuorodą – pakeičiam "Bilietai" mygtuką
-        if (upcoming.tickets) {
-          const a = document.getElementById('cta-tickets');
-          try {
+        if (upcoming.tickets){
+          const btn = document.getElementById('cta-tickets');
+          try{
             const u = new URL(upcoming.tickets);
             u.searchParams.set('utm_source','nfc');
             u.searchParams.set('utm_medium','tag');
             u.searchParams.set('utm_campaign','tickets');
             u.searchParams.set('ts', Date.now());
-            a.href = u.toString();
-          } catch {}
+            btn.href = u.toString();
+          }catch{}
         }
-      } else {
+      }else{
         document.getElementById('next-title').textContent = 'Šiemet suplanuotų artimiausių rungtynių nėra.';
         document.getElementById('countdown').classList.add('hidden');
       }
 
-      // Grafikas (horiz. skrolas)
+      // Tvarkaraštis stulpeliu
       const wrap = document.getElementById('schedule');
       wrap.innerHTML = '';
-      if (!games.length) {
-        wrap.textContent = 'Nėra įrašų. Papildykite schedule.json.';
-        return;
-      }
-      for (const g of games) {
+      if (!games.length){ wrap.textContent='Nėra įrašų. Papildykite schedule.json.'; return; }
+
+      for (const g of games){
         const t = new Date(g.datetime);
-        const game = document.createElement('div');
-        game.className = 'game';
-        const badge = document.createElement('span');
-        badge.className = 'badge ' + (g.home ? 'home' : 'away');
-        badge.textContent = g.home ? 'Namie' : 'Išvykoje';
-        const title = document.createElement('div');
-        title.style.fontWeight = '700';
-        title.textContent = `${g.opponent}`;
-        const meta = document.createElement('div');
-        meta.className = 'muted';
-        meta.textContent = fmtDate(t) + (g.venue ? ` · ${g.venue}` : '') + (g.competition ? ` · ${g.competition}` : '');
-        game.appendChild(badge);
-        game.appendChild(title);
-        game.appendChild(meta);
+        const card = document.createElement('div'); card.className='game';
 
-        if (g.tickets) {
+        const top = document.createElement('div'); top.className='row';
+        const badge = document.createElement('span'); badge.className='badge '+(g.home?'home':'away');
+        badge.textContent = g.home?'Namie':'Išvykoje';
+        const opp = document.createElement('div'); opp.className='opponent'; opp.textContent = g.opponent;
+        top.appendChild(badge); top.appendChild(opp);
+
+        const meta = document.createElement('div'); meta.className='meta';
+        meta.innerHTML = `<span class="time">${fmtDate(t)}</span>` +
+          (g.venue?` · ${g.venue}`:'') + (g.competition?` · ${g.competition}`:'');
+
+        card.appendChild(top); card.appendChild(meta);
+
+        if (g.tickets){
           const a = document.createElement('a');
-          a.className = 'btn';
-          a.style.marginTop = '6px';
-          a.href = g.tickets;
-          a.textContent = 'Bilietai';
-          a.setAttribute('data-nfc-utm','');
-          game.appendChild(a);
+          a.className='btn'; a.href=g.tickets; a.textContent='Bilietai'; a.setAttribute('data-nfc-utm','');
+          card.appendChild(a);
         }
-        wrap.appendChild(game);
+        wrap.appendChild(card);
       }
 
-      // iš naujo uždedam UTM ant dinaminių bilietų nuorodų
-      (function addUTMAgain(){
+      // UTM ant dinamiškai pridėtų bilietų nuorodų
+      (function utmAgain(){
         const bust = Date.now();
-        document.querySelectorAll('#schedule a[data-nfc-utm]').forEach(a => {
-          try {
+        document.querySelectorAll('#schedule a[data-nfc-utm]').forEach(a=>{
+          try{
             const u = new URL(a.href, location.href);
-            if (!u.searchParams.has('utm_source')) u.searchParams.set('utm_source','nfc');
-            if (!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium','tag');
-            if (!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign','tickets');
+            if(!u.searchParams.has('utm_source')) u.searchParams.set('utm_source','nfc');
+            if(!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium','tag');
+            if(!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign','tickets');
             u.searchParams.set('ts', bust);
             a.href = u.toString();
-          } catch {}
+          }catch{}
         });
       })();
     }
 
+    // Laikmatis: dienos, valandos, minutės (be sekundžių)
     let timer;
-    function startCountdown(targetDate) {
-      const update = () => {
-        const now = new Date();
-        const diff = targetDate - now;
-        if (diff <= 0) {
-          clearInterval(timer);
-          document.getElementById('d').textContent = '0';
-          document.getElementById('h').textContent = '0';
-          document.getElementById('m').textContent = '0';
-          document.getElementById('s').textContent = '0';
+    function startCountdown(targetDate){
+      const update=()=>{
+        const now=new Date(); const diff=targetDate-now;
+        if(diff<=0){ clearInterval(timer);
+          document.getElementById('d').textContent='0';
+          document.getElementById('h').textContent='00';
+          document.getElementById('m').textContent='00';
           return;
         }
-        const sec = Math.floor(diff / 1000);
-        const d = Math.floor(sec / 86400);
-        const h = Math.floor((sec % 86400) / 3600);
-        const m = Math.floor((sec % 3600) / 60);
-        const s = sec % 60;
-        document.getElementById('d').textContent = d;
-        document.getElementById('h').textContent = h.toString().padStart(2,'0');
-        document.getElementById('m').textContent = m.toString().padStart(2,'0');
-        document.getElementById('s').textContent = s.toString().padStart(2,'0');
+        const sec=Math.floor(diff/1000);
+        const d=Math.floor(sec/86400);
+        const h=Math.floor((sec%86400)/3600);
+        const m=Math.floor((sec%3600)/60);
+        document.getElementById('d').textContent=d;
+        document.getElementById('h').textContent=h.toString().padStart(2,'0');
+        document.getElementById('m').textContent=m.toString().padStart(2,'0');
       };
-      update();
-      timer = setInterval(update, 1000);
+      update(); timer=setInterval(update,15000); // kas 15 s užtenka
     }
 
     // Start
-    loadSchedule().catch(err => {
+    loadSchedule().catch(err=>{
       console.error(err);
-      document.getElementById('schedule').textContent = 'Nepavyko įkelti schedule.json';
+      document.getElementById('schedule').textContent='Nepavyko įkelti schedule.json';
     });
 
-    // Saugumo sumetimais – jeigu butų koks Service Worker, išregistruojame
-    (async () => {
-      if ('serviceWorker' in navigator) {
-        try {
-          const regs = await navigator.serviceWorker.getRegistrations();
-          for (const r of regs) r.unregister();
-        } catch {}
-      }
-    })();
+    // Jei būtų koks Service Worker – išregistruojam
+    (async()=>{ if('serviceWorker'in navigator){ try{
+      const regs=await navigator.serviceWorker.getRegistrations(); for(const r of regs) r.unregister();
+    }catch{} }})();
   </script>
 </body>
 </html>
