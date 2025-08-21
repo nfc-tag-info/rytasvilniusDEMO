@@ -53,7 +53,6 @@
     .opponent{font-weight:800;font-size:18px}
     .meta{color:var(--muted);font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .time{font-variant-numeric:tabular-nums;font-weight:700}
-    .game .btn{align-self:flex-start;margin-top:6px}
     footer{text-align:center;color:var(--muted);font-size:12px;margin:28px 0 8px}
     .center{display:flex;justify-content:center}
     .hidden{display:none}
@@ -98,6 +97,9 @@
   </div>
 
   <script>
+    // Konstanta vietoje lygos pavadinimo
+    const BRAND_LABEL = 'RYTAS';
+
     // Grįžus per BFCache – persikrauname
     window.addEventListener('pageshow', function (e) {
       if (e.persisted) location.reload();
@@ -143,23 +145,11 @@
       if (upcoming){
         const t = new Date(upcoming.datetime);
         const homeAway = upcoming.home ? 'Namie' : 'Išvykoje';
-        const comp = upcoming.competition ? ` · ${upcoming.competition}` : '';
         document.getElementById('next-title').textContent =
-          `${upcoming.opponent} (${homeAway})${comp}`;
+          `${upcoming.opponent} (${homeAway}) · ${BRAND_LABEL}`;
         document.getElementById('next-meta').textContent = fmtDate(t);
-
         startCountdown(t);
-        if (upcoming.tickets){
-          const btn = document.getElementById('cta-tickets');
-          try{
-            const u = new URL(upcoming.tickets);
-            u.searchParams.set('utm_source','nfc');
-            u.searchParams.set('utm_medium','tag');
-            u.searchParams.set('utm_campaign','tickets');
-            u.searchParams.set('ts', Date.now());
-            btn.href = u.toString();
-          }catch{}
-        }
+        // NEBEKEIČIAM pagrindinio "Bilietai" mygtuko — paliekam eshop
       }else{
         document.getElementById('next-title').textContent = 'Šiemet suplanuotų artimiausių rungtynių nėra.';
         document.getElementById('countdown').classList.add('hidden');
@@ -182,32 +172,13 @@
 
         const meta = document.createElement('div'); meta.className='meta';
         meta.innerHTML = `<span class="time">${fmtDate(t)}</span>` +
-          (g.venue?` · ${g.venue}`:'') + (g.competition?` · ${g.competition}`:'');
+          (g.venue?` · ${g.venue}`:'') + ` · ${BRAND_LABEL}`;
 
         card.appendChild(top); card.appendChild(meta);
 
-        if (g.tickets){
-          const a = document.createElement('a');
-          a.className='btn'; a.href=g.tickets; a.textContent='Bilietai'; a.setAttribute('data-nfc-utm','');
-          card.appendChild(a);
-        }
+        // Nebėra per-žaidimo "Bilietai" nuorodų
         wrap.appendChild(card);
       }
-
-      // UTM ant dinamiškai pridėtų bilietų nuorodų
-      (function utmAgain(){
-        const bust = Date.now();
-        document.querySelectorAll('#schedule a[data-nfc-utm]').forEach(a=>{
-          try{
-            const u = new URL(a.href, location.href);
-            if(!u.searchParams.has('utm_source')) u.searchParams.set('utm_source','nfc');
-            if(!u.searchParams.has('utm_medium')) u.searchParams.set('utm_medium','tag');
-            if(!u.searchParams.has('utm_campaign')) u.searchParams.set('utm_campaign','tickets');
-            u.searchParams.set('ts', bust);
-            a.href = u.toString();
-          }catch{}
-        });
-      })();
     }
 
     // Laikmatis: dienos, valandos, minutės (be sekundžių)
