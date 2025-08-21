@@ -1,26 +1,154 @@
 {
   "games": [
     {
-      "datetime": "2025-09-20T19:00:00+03:00",
-      "opponent": "Žalgiris Kaunas",
-      "home": true,
-      "venue": "Avia Solutions Group Arena",
-      "competition": "LKL",
-      "tickets": "https://eshop.rytasvilnius.lt/"
-    },
-    {
-      "datetime": "2025-09-27T18:30:00+03:00",
-      "opponent": "Juventus Utena",
+      "datetime": "2025-09-21T19:00:00+03:00",
+      "opponent": "Nevėžis",
       "home": false,
-      "venue": "Utenos arena",
+      "venue": "Kėdainių arena, Kėdainiai",
       "competition": "LKL",
       "tickets": "https://eshop.rytasvilnius.lt/"
     },
     {
-      "datetime": "2025-10-04T19:30:00+03:00",
-      "opponent": "Neptūnas Klaipėda",
+      "datetime": "2025-09-24T18:30:00+03:00",
+      "opponent": "Gargždai",
       "home": true,
-      "venue": "ASG Arena",
+      "venue": "Active Vilnius arena, Vilnius",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-09-28T19:00:00+03:00",
+      "opponent": "Juventus",
+      "home": false,
+      "venue": "Utenos daugiafunkcis sporto centras, Utena",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-07T19:30:00+03:00",
+      "opponent": "Legia Warszawa",
+      "home": true,
+      "venue": "Vilnius",
+      "competition": "BCL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-11T16:30:00+03:00",
+      "opponent": "Lietkabelis",
+      "home": false,
+      "venue": "Kalnapilio arena, Panevėžys",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-15T19:30:00+03:00",
+      "opponent": "MLP Academics Heidelberg",
+      "home": false,
+      "venue": "SNP Dome, Heidelberg",
+      "competition": "BCL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-18T16:50:00+03:00",
+      "opponent": "Neptūnas",
+      "home": true,
+      "venue": "Active Vilnius arena, Vilnius",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-22T19:30:00+03:00",
+      "opponent": "Promitheas Patras BC",
+      "home": true,
+      "venue": "Vilnius",
+      "competition": "BCL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-25T16:30:00+03:00",
+      "opponent": "Šiauliai",
+      "home": true,
+      "venue": "Active Vilnius arena, Vilnius",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-11-02T16:50:00+02:00",
+      "opponent": "Žalgiris",
+      "home": false,
+      "venue": "Žalgirio arena, Kaunas",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-11-05T19:30:00+02:00",
+      "opponent": "MLP Academics Heidelberg",
+      "home": true,
+      "venue": "Vilnius",
+      "competition": "BCL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-11-09T16:50:00+02:00",
+      "opponent": "Jonava",
+      "home": true,
+      "venue": "Active Vilnius arena, Vilnius",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-11-15T16:30:00+02:00",
+      "opponent": "Šiauliai",
+      "home": false,
+      "venue": "Šiaulių arena, Šiauliai",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-11-18T19:10:00+02:00",
+      "opponent": "Legia Warszawa",
+      "home": false,
+      "venue": "Torwar Arena, Warsaw",
+      "competition": "BCL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-11-22T16:50:00+02:00",
+      "opponent": "Jonava",
+      "home": false,
+      "venue": "Jonavos sporto arena, Jonava",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-12-06T16:50:00+02:00",
+      "opponent": "Nevėžis",
+      "home": true,
+      "venue": "Active Vilnius arena, Vilnius",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-12-13T16:30:00+02:00",
+      "opponent": "Lietkabelis",
+      "home": true,
+      "venue": "Active Vilnius arena, Vilnius",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-12-17T19:30:00+02:00",
+      "opponent": "Promitheas Patras BC",
+      "home": false,
+      "venue": "Dimitris Tofalos Arena, Patras",
+      "competition": "BCL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-12-27T16:50:00+02:00",
+      "opponent": "Žalgiris",
+      "home": true,
+      "venue": "Active Vilnius arena, Vilnius",
       "competition": "LKL",
       "tickets": "https://eshop.rytasvilnius.lt/"
     }
