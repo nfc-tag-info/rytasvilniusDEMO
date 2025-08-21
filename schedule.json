@@ -1,0 +1,28 @@
+{
+  "games": [
+    {
+      "datetime": "2025-09-20T19:00:00+03:00",
+      "opponent": "Žalgiris Kaunas",
+      "home": true,
+      "venue": "Avia Solutions Group Arena",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-09-27T18:30:00+03:00",
+      "opponent": "Juventus Utena",
+      "home": false,
+      "venue": "Utenos arena",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    },
+    {
+      "datetime": "2025-10-04T19:30:00+03:00",
+      "opponent": "Neptūnas Klaipėda",
+      "home": true,
+      "venue": "ASG Arena",
+      "competition": "LKL",
+      "tickets": "https://eshop.rytasvilnius.lt/"
+    }
+  ]
+}
